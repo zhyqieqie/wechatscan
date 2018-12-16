@@ -69,14 +69,27 @@ vs2015
 
 mysql:5.7
 
+扫码 试用
+
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/0.jpg)
+首页
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/1.jpg)
+#浏览
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/2.jpg)
+#前台
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/3.jpg)
+#台牌
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/4.jpg)
+#桌帖
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/5.jpg)
+#手机端订单
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/6.jpg)
+新订单通知
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/7.jpg)
+小票
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/8.jpg)
+
+宣传单
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/doortip.png)
 
 

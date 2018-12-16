@@ -1,0 +1,12 @@
+.fuwuRadioGroup {
+  margin-top: 10rpx;
+}
+.fuwuTitle{
+  margin-top: 30rpx;
+}
+.fuwuItem {
+  padding-left: 50rpx;
+  font-family: "微软雅黑";
+  background: #fff;
+  padding-bottom: 25rpx;
+}

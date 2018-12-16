@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "page/shop/shop",
+    "page/diancan/index",
+    "page/thisorder/thisorder",
+    "page/my/my",
+    "page/fuwu/fuwu"
+  ],
+  "window": {
+    "enablePullDownRefresh": "true"
+  },
+  "tabBar": {
+    "color": "#454545",
+    "selectedColor": "#F25B02",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "page/shop/shop",
+        "iconPath": "page/resources/pic/shouye.png",
+        "selectedIconPath": "page/resources/pic/shouyeSelected.png",
+        "text": "门店"
+      },
+      {
+        "pagePath": "page/diancan/index",
+        "iconPath": "page/resources/pic/orderList.png",
+        "selectedIconPath": "page/resources/pic/orderListSelected.png",
+        "text": "点餐"
+      },
+      {
+        "pagePath": "page/my/my",
+        "iconPath": "page/resources/pic/my.png",
+        "selectedIconPath": "page/resources/pic/mySelected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

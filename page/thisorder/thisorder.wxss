@@ -1,0 +1,119 @@
+.goback {
+  width: 160rpx;
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  background: lightgray;
+  color: black;
+  float: right;
+  text-align: center;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+
+.section__title {
+  float: left;
+  font-size: 32rpx;
+  width: 180rpx;
+  line-height: 60rpx;
+  text-align: right;
+}
+
+.querenRadioGroup {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.querenTitle {
+  margin-top: 30rpx;
+}
+
+.querenItem {
+  padding-left: 20rpx;
+  font-family: "微软雅黑";
+  padding-bottom: 25rpx;
+}
+
+.select_wrap {
+  border: 1rpx solid #ddd;
+  width: 200rpx;
+  float: left;
+  border-radius: 10rpx;
+  height: 50rpx;
+  margin-top: 5rpx;
+}
+
+.select_left {
+  margin-left: 15rpx;
+  text-align: left;
+  margin-top: 5rpx;
+  float: left;
+}
+
+.image_dropdown {
+  width: 45rpx;
+  height: 40rpx;
+  border-radius: 5px;
+  float: right;
+  text-align: right;
+  margin-right: 10rpx;
+  margin-top: 5rpx;
+}
+
+.select_wrap_daodian {
+  width: 700rpx;
+}
+
+.select_wrap_riqi {
+  border: 1rpx solid #ddd;
+  width: 200rpx;
+  float: left;
+  border-radius: 10rpx;
+  height: 50rpx;
+  margin-top: 5rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+}
+
+.input_waimaidizhi {
+  border: 1rpx solid #ddd;
+  width: 450rpx;
+  float: left;
+  border-radius: 10rpx;
+  height: 65rpx;
+  margin-top: 0rpx;
+  margin-left: 0rpx;
+}
+
+.section_half_left {
+  width: 49.5%;
+  float: left;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  display: block;
+  border-right: 1rpx solid #ddd;
+}
+
+.section_half_right {
+  width: 49.5%;
+  float: left;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  display: block;
+}
+
+.label_left {
+  float: left;
+  height: 65rpx;
+  margin-top: 0rpx;
+  margin-left: 20rpx;
+}
+
+.label_right {
+  float: left;
+  height: 65rpx;
+  margin-top: 0rpx;
+  margin-left: 0rpx;
+  color: #5cba42;
+}

@@ -1,0 +1,157 @@
+<view class="index" hidden="{{canDiancan}}">
+  <view>
+    请到店内点餐，预约及外卖请电话联系前台，谢谢配合！
+  </view>
+  <view class="cart-tab-item-btn" hidden="{{!userDenyLocaltion}}" bindtap="reLocaltion">
+    重新定位
+  </view>
+</view>
+<view class="index" hidden="{{yincangShouquan}}">
+  <view>
+    为便于下单，请点击登录，并允许授权，谢谢配合。    
+  </view>
+  <view class="cart-tab-item-btn"   bindtap="reAuthor">
+    登陆
+  </view>
+</view>
+<view class="index" hidden="{{canDiancanChangjing}}">
+  <view>
+    扫描二维码，自助点餐
+  </view>
+  <view class="cart-tab-item-btn" hidden="{{!userDenyLocaltion}}" bindtap="reLocaltion">
+    扫码
+  </view>
+</view>
+<view class="index" hidden="{{!canDiancan}}">
+  <view class="cart-tab-wrp">
+    <view class="cart-item-total cart-tab-item">
+      <view class="cart-item-icon-wrp">
+        <block wx:if="{{total.count != 0}}">
+          <text class="cart-item-total-num-button">{{total.count}}</text>
+        </block>
+        <block wx:elif="true">
+          <view>
+            <image class="cart-item-total-car-button" src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/orderBoxRight.png" />
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="cart-tab-item">
+      <text class="cart-item-total-price">¥{{total.money}}</text>
+      <navigator url="../thisorder/thisorder" class="cart-tab-item-btn" hover-class="navigator-hover">下一步</navigator>
+    </view>
+  </view>
+  <view class="menu-wrp">
+    <scroll-view scroll-y="true" class="left" style="height: 1020rpx;">
+      <!--菜单列表-->
+      <block wx:for="{{menus}}" wx:key="id" wx:for-item="menu">
+        <view data-id="{{menu.id}}" data-tag="{{menu.tag}}" bindtap="selectMenu">
+          <view class="{{selectedMenuId == menu.id ? 'type_none_select' : 'type_none'}}">
+            <view>
+              <view class="type_none_text">{{menu.fenleimingcheng}}</view>
+              <view hidden="{{menu.url== null ||menu.url== 0}}" class="cart-item-total-num bc_red">{{menu.url}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="menu-footer"></view>
+    </scroll-view>
+    <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="right-side" style="height: 1020rpx;">
+      <block wx:for="{{menus}}" wx:key="id" wx:for-item="menu">
+        <view>
+          <view id="{{menu.tag}}" class="dish-category-title">{{menu.fenleimingcheng}}</view>
+          <block wx:for="{{menu.dishs}}" wx:key="id" wx:for-item="dish">
+            <view class="dish-item">
+              <view class="dish-item-wrp">
+                <view class="dish-item-select" style="" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="{{dish.count == 0? 'addCount' : ''}}">
+                  <view>
+                    <image hidden="{{dish.count != 0}}" class="image" src="../resources/pic/countSelect.png" />
+                  </view>
+                </view>
+                <view class="dish-item-info" style="" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="{{dish.count == 0? 'addCount' : ''}}">
+                  <view>
+                    <text class="dish-item-name">{{dish.caiming}}</text>
+                  </view>
+                  <block wx:if="{{dish.xiaoshoujia != dish.huiyuanjia}}">
+                    <view>
+                      <view hidden="{{dish.count == 0||dish.fendianid>0}}" class="select-whole-right active">{{dish.fendianmingcheng}}</view>
+                      <text class="dish-item-money_nouse">¥{{dish.xiaoshoujia}}</text>
+                      <text class="dish-item-money">¥{{dish.huiyuanjia}}/{{dish.danwei}}</text>
+                    </view>
+                  </block>
+                  <block wx:elif="true">
+                    <view>
+                      <view hidden="{{dish.count == 0||dish.fendianid>0}}" class="select-whole-right active">{{dish.fendianmingcheng}}</view>
+                      <text class="dish-item-money">¥{{dish.huiyuanjia}}/{{dish.danwei}}</text>
+                    </view>
+                  </block>
+                </view>
+                <view class="dish-item-count" style="">
+                  <view class="dish-item-tab">
+                    <view hidden="{{dish.count == 0}}" class="dish-item-count-minus" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="minusCount">
+                      <image class="image120" src="../resources/pic/countMinus.png" />
+                    </view>
+                  </view>
+                  <view class="dish-item-count-text dish-item-tab">
+                    <text hidden="{{dish.count == 0}}">{{dish.count}}</text>
+                  </view>
+                  <view class="dish-item-count-plus" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="addCount">
+                    <image hidden="{{dish.count == 0}}" class="image120" src="../resources/pic/countSelAdd.png" />
+                  </view>
+                  <view class="dish-item-pic">
+                    <image hidden="{{dish.count != 0}}" class="image" src="{{dish.url}}" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="selectItem" />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+      <view class="dish-footer"></view>
+    </scroll-view>
+  </view>
+  <view class="goods-detail" hidden="{{!showGoodsDetail}}">
+    <view class="mask" bindtap="hideGoodsDetail"></view>
+    <div class="close-bg" bindtap="hideGoodsDetail">
+      <image class="image" src="../resources/pic/dish-close.png" />
+    </div>
+    <view class="goodsdetail">
+      <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
+        <swiper-item>
+          <image src="{{goodsDetailUrl}}"></image>
+        </swiper-item>
+      </swiper>
+      <view class="title1">{{goodsDetailName}}</view>
+      <view class="title3" hidden="{{goodsDetailTuijian==0}}">推荐星级：
+        <image src="../resources/pic/star.jpg"></image>
+        <image hidden="{{goodsDetailTuijian<2}}" src="../resources/pic/star.jpg"></image>
+        <image hidden="{{goodsDetailTuijian<3}}" src="../resources/pic/star.jpg"></image>
+        <image hidden="{{goodsDetailTuijian<4}}" src="../resources/pic/star.jpg"></image>
+        <image hidden="{{goodsDetailTuijian<5}}" src="../resources/pic/star.jpg"></image>
+      </view>
+      <block wx:if="{{goodsDetailMemo != ''}}">
+        <view class="title2">{{goodsDetailMemo}}</view>
+      </block>
+      <view class="title4">
+        <view>
+          <!--<text hidden="{{goodsDetailSalePrice != goodsDetailMenberPrice}}" class="dish-item-money_nouse_detail">¥{{goodsDetailSalePrice}}</text>-->
+          <text class="dish-item-money_detail">¥{{goodsDetailMenberPrice}}/{{goodsDetailDanwei}}</text>
+        </view>
+        <view class="title6" data-id="{{goodsDetailId}}" data-cid="{{goodsDetailMenuId}}" data-hide="true" bindtap="addCount">添加到订单</view>
+      </view>
+      <view class="title5">
+        <block wx:for="{{currGoods.kouWeiList}}" wx:key="id" wx:for-item="aKouWei">
+          <view data-id="{{aKouWei.id}}" data-name="{{aKouWei.kouweimingcheng}}" bindtap="selectKouWei">
+            <view class="{{currGoods.fendianmingcheng == aKouWei.kouweimingcheng ? 'select-whole active' : 'select-whole'}}">
+              <view class="activeText">{{aKouWei.kouweimingcheng}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view>
+    <image hidden="{{hidAnim}}" style="position: fixed;top: {{Y}}px;left:{{X}}px;color: #fff;font-size: 35px;width: 30px;height: 15px;line-height: 30px;text-align: center;border-radius: 30px;background-size: 100%;background-color:#A5A5A5;border: none;" src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/shaoji.jpg"
+      animation="{{animationData}}" />
+  </view>
+</view>

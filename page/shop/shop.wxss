@@ -1,0 +1,221 @@
+page {
+  font-family: "微软雅黑";
+  background: #fff;
+  padding-bottom: 150rpx;
+}
+
+.detailtop {
+  height: 320rpx;
+  background: #fff;
+  text-align: center;
+}
+
+.detailtoppic image {
+  width: 700rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+  /* border: 3px solid #f38815;*/
+  margin-top: 10rpx;
+}
+
+.indexbom {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.indexbom image {
+  width: 48%;
+  height: 240rpx;
+  margin: 1% 1%;
+}
+
+.indexbom-tit {
+  border-left: 3px solid #f38815;
+  width: 93%;
+  height: 30rpx;
+  margin: 20rpx auto;
+  font-size: 30rpx;
+  color: #4a4a4a;
+  line-height: 30rpx;
+  text-indent: 10px;
+}
+
+.indextop {
+  width: 95%;
+  text-align: left;
+  font-size: 24rpx;
+  color: #fff;
+  background: url(/imgs/mjbg.png) repeat-x top left;
+  background-size: 20rpx auto;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  margin-top: 60rpx;
+}
+
+.indextopSpan {
+  display: inline-block;
+  text-align: center;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 5px;
+  background: #3ba2f9;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 40rpx;
+}
+
+.detailtoptit {
+  font-size: 30rpx;
+  color: #4a4a4a;
+  margin-top: 10rpx;
+}
+
+.detailtopstate {
+  font-size: 36rpx;
+  color: #4a4a4a;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+
+.detaillist {
+  background: #fff;
+  margin-top: 30rpx;
+  padding: 30rpx 0 0;
+}
+
+.detaillist .table {
+  width: 100%;
+  font-size: 30rpx;
+  color: #606060;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.detailmid {
+  background: #fff;
+  font-size: 30rpx;
+  color: #565656;
+}
+
+.detailmidli {
+  position: relative;
+  border-top: 1px solid #efefef;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.detailmidlileft {
+  width: 50rpx;
+  height: 100rpx;
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.detailmidliright {
+  float: left;
+}
+
+.detailmidpic {
+  width: 30rpx;
+  height: 100rpx;
+}
+
+.detailmidli0 {
+  position: relative;
+ /* border-top: 1px solid #efefef;*/
+  height: auto;
+  line-height: 40rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 30rpx 0 30rpx 70rpx;
+}
+
+.detailmidpic0 {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 25rpx;
+  left: 20rpx;
+  margin-top: 6rpx;
+}
+
+.detailmidpic1 {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 20rpx;
+}
+
+.tr {
+  display: flex;
+  padding: 15rpx 20rpx;
+}
+
+.th, .td {
+  border: 0;
+  width: 100%;
+}
+
+.ordername {
+  width: 70%;
+  text-align: left;
+}
+
+.ordernum {
+  width: 15%;
+}
+
+.orderprice {
+  width: 15%;
+  text-align: right;
+}
+
+.trbom {
+  display: flex;
+  padding: 15rpx 20rpx;
+}
+
+.tdbomtit {
+  text-align: left;
+  width: 85%;
+  font-size: 28rpx;
+}
+
+.tdbomprice {
+  text-align: right;
+  width: 15%;
+  color: #f38815;
+}
+
+.tabletotal {
+  font-size: 36rpx;
+  color: #f38815;
+  text-align: right;
+  padding: 20rpx;
+}
+
+.detailinfo {
+  background: #fff;
+  margin-top: 30rpx;
+  padding: 20rpx 20rpx 30rpx;
+  font-size: 30rpx;
+  color: #606060;
+}
+
+.detailtit {
+  padding: 15rpx 0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.detailtxt {
+  padding: 5rpx 0;
+}
+
+.shopTuiJian{
+  margin-left: 20rpx;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+  width: 710rpx;
+  height: 952rpx;
+}

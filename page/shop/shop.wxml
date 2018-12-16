@@ -1,0 +1,54 @@
+<!--上-->
+<view class="detailtop">
+  <view class="detailtoppic">
+    <image src="{{aFendian.tupian}}"></image>
+  </view>
+  <view class="detailtoptit">
+  </view>
+</view>
+
+<!--中-->
+<view class="detailmid">
+  <view class="detailmidli0">
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/shoppic_add.png" class="detailmidpic0"></image>
+    门店地址：{{aFendian.dizhi}}
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/localtion.png" bindtap="openLocation" class="detailmidpic1"></image>
+  </view>
+  <view class="detailmidli0">
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/shoppic_tel.png" class="detailmidpic0"></image>
+    预约电话：{{aFendian.dianhua}}
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/call.png" bindtap="makeCall" class="detailmidpic1"></image>
+  </view>
+  <view class="detailmidli0">
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/shoppic_time.png" class="detailmidpic0"></image>
+    营业时间：{{kaishishijian}} - {{jieshushijian}}
+  </view>
+
+  <view class="detailmidli0">
+    <image src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/shoppic_pic.png" class="detailmidpic0"></image>
+    <text selectable="true"> {{aFendian.jieshao}} </text>
+  </view>
+</view>
+<image src="{{aFendian.tuijian}}" class="shopTuiJian"></image>
+
+<view class="goods-detail" hidden="{{yincangZhuce}}">
+  <view class="mask" bindtap="hideZhuce"></view>
+  <view class="close-zhuce" bindtap="hideZhuce">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winZhuce">
+    <!-- <view class="winZhuce-title">注册会员，立享折扣</view> -->
+    <view class="winZhuce-fendian">
+      {{aFendian.fendianmingcheng}}
+    </view>
+    <view class="winZhuce-fale">
+      发了一个红包
+    </view>
+    <view class="winZhuce-wancheng">
+      完成注册即可领取
+    </view>
+    <view class="winZhuce-item">
+      <button class="winZhuce-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">開</button>
+    </view>
+  </view>
+</view>

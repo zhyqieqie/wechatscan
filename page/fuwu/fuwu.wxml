@@ -1,0 +1,24 @@
+<view class="fuwuTitle">
+  需要：</view>
+
+<radio-group class="fuwuRadioGroup" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}">
+    <view>
+      <radio class="fuwuItem" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </view>
+  </label>
+</radio-group>
+<view class="classname">
+    <input maxlength="200" placeholder="备注" value="{{kehuliuyan}}" bindinput="charChange" focus="{{focus}}"></input>
+</view>
+<view class="cart-tab-wrp">
+  <view class="cart-item-total cart-tab-item">
+    <view>
+      <image style="width:55rpx;height:40rpx;display:inline-block;overflow:hidden;margin-top:25rpx;z-index:9999" src="../resources/pic/return.png" catchtap="bindback" />
+    </view>
+  </view>
+  <view class="cart-tab-item">
+    <text class="cart-item-total-price"></text>
+    <view bindtap="bindsubmit" class="cart-tab-item-btn" hover-class="navigator-hover">发送</view>
+  </view>
+</view>

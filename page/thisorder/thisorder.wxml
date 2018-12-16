@@ -1,0 +1,149 @@
+<view class="index">
+  <view class="cart-tab-wrp">
+    <view class="cart-item-total cart-tab-item">
+      <view>
+        <image style="width:55rpx;height:40rpx;display:inline-block;overflow:hidden;margin-top:25rpx;z-index:9999" src="../resources/pic/return.png" catchtap="bindback" />
+      </view>
+      <view class="cart-item-icon-wrp">
+        <block wx:if="{{total.count != 0}}">
+          <text class="cart-item-total-num-button">{{total.count}}</text>
+        </block>
+        <block wx:elif="true">
+          <view>
+            <image class="cart-item-total-car-button" src="http://gongyong-1253225512.file.myqcloud.com/xiaochengxu/orderBoxRight.png" />
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="cart-tab-item">
+      <text class="cart-item-total-price">¥{{(total.money*100- youhuiquanJine*100)/100}}</text>
+      <view bindtap="bindsubmit" hidden="{{!total.count > 0}}" class="cart-tab-item-btn" hover-class="navigator-hover">{{aFendian.zhifu?' 支 付 ':' 提 交 '}}</view>
+    </view>
+  </view>
+  <view>
+    <view class="section">
+      <view class="section__title">类型：</view>
+      <radio-group class="querenRadioGroup" bindchange="radioChange">
+        <label wx:for="{{leixingItems}}" wx:key="id">
+          <view>
+            <radio class="querenItem" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="section" hidden="{{aLeixing== '打包带走'||aLeixing== '外卖' }}">
+      <view class="section__title">人数：</view>
+      <picker bindchange="bindRenshuChange" value="{{renshuIndex}}" range="{{renshuArray}}">
+        <view class="select_wrap">
+          <view class="select_left">
+            {{renshuArray[renshuIndex]}}
+          </view>
+          <view>
+            <image class="image_dropdown" src="../resources/pic/dropdown.png" />
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="section" hidden="{{aLeixing== '外卖' }}">
+      <view class="section__title">到店时间：</view>
+      <view class="select_wrap_daodian">
+        <picker bindchange="bindDaoDianChange" value="{{daoDianIndex}}" range="{{daoDianArray}}">
+          <view class="select_wrap_riqi">
+            <view class="select_left">
+              {{daoDianArray[daoDianIndex]}}
+            </view>
+            <view>
+              <image class="image_dropdown" src="../resources/pic/dropdown.png" />
+            </view>
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+          <view class="select_wrap_riqi">
+            <view class="select_left">
+              {{time}}
+            </view>
+            <view>
+              <image class="image_dropdown" src="../resources/pic/dropdown.png" />
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section" hidden="{{aLeixing== '堂食'||aLeixing== '打包带走' }}">
+      <view class="section__title">外卖地址：</view>
+      <input class="input_waimaidizhi" maxlength="200" placeholder="" bindblur="bindWaiMaiDiZhiblur" value="{{aWaiMaiDiZhi}}"></input>
+    </view>
+    <view class="section" hidden="{{aLeixing== '堂食' || aLeixing== '打包带走' }}">
+      <view class="section__title">联系电话：</view>
+      <input class="input_waimaidizhi" maxlength="200" placeholder="" bindblur="bindLianXiDianHuablur" value="{{aLianXiDianHua}}"></input>
+    </view>
+    <view class="section">
+      <view class="section__title">备注：</view>
+      <input class="input_waimaidizhi" maxlength="200" placeholder="还要给商家交代点什么吗？" bindblur="bindMemoblur" value="{{kehuliuyan}}"></input>
+    </view>
+    <view class="section" hidden="{{!aFendian.zhifu}}">
+      <view class="section_half_left">
+        <view  class="label_left">账户余额：</view>
+        <view class="label_right">¥{{aKehu && aKehu.shengyujine && aKehu.shengyujine != 'null' ?aKehu.shengyujine:'0.00'}}</view>
+      </view>
+      <view class="section_half_right" hidden="{{youhuiquanJine==0}}">
+        <view  class="label_left">优惠券：</view>
+        <view class="label_right">节省¥{{youhuiquanJine}}</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view style="margin-top:15rpx;margin-left:15rpx;">点餐明细：</view>
+  </view>
+  <view class="menu-wrp">
+    <scroll-view scroll-y="true" class="right-side">
+      <view class="dish-header"></view>
+      <block wx:for="{{menus}}" wx:key="id" wx:for-item="menu">
+        <view>
+          <!-- <view hidden="{{menu.url== null ||menu.url== 0}}" id="{{menu.tag}}" class="dish-category-title">{{menu.fenleimingcheng}}</view> -->
+          <block wx:for="{{menu.dishs}}" wx:key="id" wx:for-item="dish">
+            <view hidden="{{dish.count == 0}}" class="dish-item">
+              <view class="dish-item-wrp">
+                <view class="dish-item-pic">
+                  <image class="image" src="{{dish.url}}" />
+                </view>
+                <view class="dish-item-info" style="">
+                  <view>
+                    <text class="dish-item-name">{{dish.caiming}}</text>
+                  </view>
+                  <block wx:if="{{dish.xiaoshoujia != dish.huiyuanjia}}">
+                    <view>
+                      <text class="dish-item-money_nouse">¥{{dish.xiaoshoujia}}/{{dish.danwei}}</text>
+                      <text class="dish-item-money">¥{{dish.huiyuanjia}}/{{dish.danwei}}</text>
+                      <view hidden="{{dish.count == 0||dish.fendianid>0}}" class="select-whole-right active">{{dish.fendianmingcheng}}</view>
+                    </view>
+                  </block>
+                  <block wx:elif="true">
+                    <view>
+                      <text class="dish-item-money">¥{{dish.huiyuanjia}}/{{dish.danwei}}</text>
+                      <view hidden="{{dish.count == 0||dish.fendianid>0}}" class="select-whole-right active">{{dish.fendianmingcheng}}</view>
+                    </view>
+                  </block>
+                </view>
+                <view class="dish-item-count" style="">
+                  <view class="dish-item-tab">
+                    <view hidden="{{dish.count == 0}}" class="dish-item-count-minus" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="minusCount">
+                      <image class="image120" src="../resources/pic/countMinus.png" />
+                    </view>
+                  </view>
+                  <view class="dish-item-count-text dish-item-tab">
+                    <text hidden="{{dish.count == 0}}">{{dish.count}}</text>
+                  </view>
+                  <view class="dish-item-count-plus" data-id="{{dish.id}}" data-cid="{{menu.id}}" bindtap="addCount">
+                    <image class="image120" src="../resources/pic/countSelAdd.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+      <view class="dish-footer"></view>
+    </scroll-view>
+  </view>
+</view>

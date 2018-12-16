@@ -1,0 +1,300 @@
+<view class="index" hidden="{{yincangShouquan}}">
+  <view>
+    为便于下单，请点击登录，并允许授权， 谢谢配合。 
+  </view>
+  <view class="cart-tab-item-btn" bindtap="reAuthor">
+    登陆 
+  </view>
+</view>
+
+<view class="icon-line">
+  <view>
+    <image class="icon-headurl" src="{{userInfo?userInfo.avatarUrl:''}}"></image>
+  </view>
+  <view class="icon-content">
+    <view class="icon-content-name">
+      {{userInfo?userInfo.nickName:""}}
+    </view>
+    <view class="icon-content-phone">
+      手机号：{{aKehu && aKehu.dianhua?aKehu.dianhua:""}}
+    </view>
+  </view>
+</view>
+<view class="area-line"></view>
+
+<view class="weui-cells weui-cells_after-title" bindtap="showXiaofeiJilu">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">账号余额</view>
+    </view>
+    <view class="huiyuan-yue">
+      ¥{{aKehu && aKehu.shengyujine && aKehu.shengyujine != 'null' ?aKehu.shengyujine:'0.00'}}
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-select weui-select_in-select-after"></view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title" bindtap="showChongzhi">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">充值赠送</view>
+    </view>
+    <view class="huiyuan-chongzhi1" wx:if="{{chongzhizengsongItems.length>0 }}">
+      {{chongzhizengsongItems[0].name}}
+    </view>
+    <view class="huiyuan-chongzhi2" wx:if="{{chongzhizengsongItems.length>1 }}">
+      {{chongzhizengsongItems[1].name}}
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-select weui-select_in-select-after"></view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title" bindtap="showHuiyuanLeibie">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">会员折扣</view>
+    </view>
+    <block wx:if="{{aKehu &&  aKehu.zhekou < 100 }}">
+
+      <view class="huiyuan-neirong">
+        享{{aKehu.zhekou}}折优惠
+      </view>
+    </block>
+    <view class="weui-cell__bd">
+      <view class="weui-select weui-select_in-select-after"></view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title" bindtap="showYouhuiquan">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">优惠券</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-select weui-select_in-select-after"></view>
+    </view>
+  </view>
+</view>
+
+<view class="area-line"></view>
+<view class="weui-cells__title">我的订单</view>
+<view class="scroll-list">
+  <view class="weui-form-preview" wx:for="{{orderList}}" wx:for-index="fidx" wx:for-item="fitem" wx:key="dingdanno" data-id="{{ fitem.dingdanno }}">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__value_in-hd">订单号:{{ fitem.dingdanno }}</view>
+        <block wx:if="{{ (fitem.zhuangtai=='已下单'||fitem.zhuangtai== '开始制作'||fitem.zhuangtai== '制作完成'||fitem.zhuangtai== '已上菜')&& fidx ==0}}">
+          <view class="weui-vcode-btn" data-id="{{fitem.dingdanno}}" bindtap="jiaCai">加菜</view>
+          <!-- <view class="weui-vcode-btn" data-id="{{citem.id}}" bindtap="fuwuyuan">呼叫服务员</view>-->
+          <navigator url="../fuwu/fuwu" class="weui-vcode-btn" hover-class="navigator-hover">呼叫服务员</navigator>
+        </block>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__value_in-hd">台位：{{ fitem.fendianmingcheng }}-{{ fitem.zhuozimingcheng }}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__value_in-hd"> 时间：{{ fitem.shijian }}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__value_in-hd">备注：{{fitem.kehubeizhu }}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-form-preview__item" wx:for="{{fitem.items}}" wx:for-index="cidx" wx:for-item="citem" wx:key="id">
+        <view class="weui-form-preview__bd_item_warp">
+          <block wx:if="{{cidx ==0 && fitem.zhuangtai =='已下单'}}">
+            <!--<view class="weui-form-preview__label2" data-id="{{fitem.id}}" data-name="{{fitem.caiming}}" bindtap="CancelItem">取消</view>-->
+            <view class="weui-form-preview__label2">{{ fitem.zhuangtai }}</view>
+          </block>
+          <block wx:elif="{{cidx > 0 &&  citem.zhuangtai =='已下单'}}">
+            <!--<view class="weui-form-preview__label2" data-id="{{citem.id}}" data-name="{{citem.caiming}}" bindtap="CancelItem">取消</view>-->
+            <view class="weui-form-preview__label2">{{ citem.zhuangtai }}</view>
+          </block>
+          <block wx:elif="{{cidx == 0 &&  fitem.zhuangtai != '已下单'}}">
+            <view class="weui-form-preview__label2">{{ fitem.zhuangtai }}</view>
+          </block>
+          <block wx:elif="{{cidx > 0 &&  citem.zhuangtai != '已下单'}}">
+            <view class="weui-form-preview__label2">{{ citem.zhuangtai }}</view>
+          </block>
+          <view class="weui-form-preview__label" wx:if="{{cidx ==0}}"> {{fitem.caiming }}</view>
+          <view class="weui-form-preview__label" wx:else> {{ citem.caiming }} </view>
+          <view class="weui-form-preview__label2" wx:if="{{cidx ==0}}">x{{ fitem.shuliang }} ¥{{(fitem.shuliang *(fitem.huiyuanjia*100))/100 }}</view>
+          <view class="weui-form-preview__label2" wx:else>x{{ citem.shuliang }} ¥{{ (citem.shuliang*(100*citem.huiyuanjia))/100 }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-form-preview__sum">
+      <view class="weui-form-preview__item_sum">
+        <block wx:if="{{fitem.zongxiaoshoujia != fitem.zonghuiyuanjia}}">
+          <text class="weui-form-preview__sum_value">¥{{ fitem.zonghuiyuanjia }}</text>
+          <text class="weui-form-preview__value_in-sum">应付:</text>
+          <text class="weui-form-preview__sum_value">¥{{(fitem.zongxiaoshoujia*1000- fitem.zonghuiyuanjia*1000)/1000 }}</text>
+          <text class="weui-form-preview__value_in-sum">优惠:</text>
+        </block>
+        <text class="weui-form-preview__sum_value">¥{{ fitem.zongxiaoshoujia }}</text>
+        <text class="weui-form-preview__value_in-sum">总额:</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-footer weui-footer_fixed-bottom">
+  <block wx:if="{{orderList==''}}">
+    <view class="bottom_no_order">暂无订单</view>
+  </block>
+  <view class="weui-footer__links">
+    <navigator url="" class="weui-footer__link">技术支持：微扫点餐</navigator>
+  </view>
+</view>
+
+<!-- 账号余额 弹出框-->
+<view class="goods-detail" hidden="{{yincangXiaofeiJilu}}">
+  <view class="mask" bindtap="hideXiaofeiJilu"></view>
+  <view class="close-bg_xiaofejilu" bindtap="hideXiaofeiJilu">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winXiaofeijilu">
+    <view class="winXiaofeijilu-title">
+      <view class="winXiaofeijilu-title-left">当前余额</view>
+      <view class="winXiaofeijilu-title-right">¥{{aKehu && aKehu.shengyujine && aKehu.shengyujine != 'null' ?aKehu.shengyujine:'0.00'}}元</view>
+    </view>
+    <view>
+      <view class="jilu-cell weui-check__labe" wx:for="{{xiaofeijiluList}}" wx:key="value">
+        <view class="winXiaofeijilu-item">
+          <view>
+            <view class='weui-cell__bd_up_left'>{{item.zhifuhou>item.zhifuqian?"充值赠送":item.zhifuhou==item.zhifuqian?"在线支付":"余额支付"}}</view>
+            <view class='weui-cell__bd_up_right'>{{item.zhifuhou>item.zhifuqian?"+"+item.jine:"-"+item.jine}}</view>
+          </view>
+          <view>
+            <view class='weui-cell__bd_down_left'>{{item.shijian}}</view>
+            <view class='weui-cell__bd_down_right'>{{item.zhifuhou}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 充值弹出框-->
+<view class="goods-detail" hidden="{{yincangChongzhi}}">
+  <view class="mask" bindtap="hideChongzhi"></view>
+  <view class="close-bg" bindtap="hideChongzhi">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winChongzhi">
+    <view class="winChongzhi-title">充值列表</view>
+    <view class="winChongzhi-item">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{chongzhizengsongItems}}" wx:key="value">
+          <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+          <view class="weui-cell__bd">{{item.name}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="winChongzhi-btn" bindtap="chongzhi">充值</view>
+  </view>
+</view>
+
+<!-- 会员优惠-->
+<view class="goods-detail" hidden="{{yincangHuiyuanLeibie}}">
+  <view class="mask" bindtap="hideHuiyuanLeibie"></view>
+  <view class="close-bg" bindtap="hideHuiyuanLeibie">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winChongzhi">
+    <view class="winChongzhi-title">会员类别列表</view>
+    <view class="winChongzhi-item">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{huiyuanleibieItems}}" wx:key="value">
+          <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+          <view class="weui-cell__bd">{{item.name}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+</view>
+
+<!-- 会员注册-->
+<view class="goods-detail" hidden="{{yincangZhuce}}">
+  <view class="mask" bindtap="hideZhuce"></view>
+  <view class="close-zhuce" bindtap="hideZhuce">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winZhuce">
+    <!-- <view class="winZhuce-title">注册会员，立享折扣</view> -->
+    <view class="winZhuce-fendian">
+      {{aFendian.fendianmingcheng}}
+    </view>
+    <view class="winZhuce-fale">
+      发了一个红包
+    </view>
+    <view class="winZhuce-wancheng">
+      完成注册即可领取
+    </view>
+    <view class="winZhuce-item">
+      <button class="winZhuce-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">開</button>
+    </view>
+  </view>
+</view>
+
+<!-- 优惠券 弹出框-->
+<view class="goods-detail" hidden="{{yincangYouhuiquan}}">
+  <view class="mask" bindtap="hideYouhuiquan"></view>
+  <view class="close-bg_xiaofejilu" bindtap="hideYouhuiquan">
+    <image class="image" src="../resources/pic/dish-close.png" />
+  </view>
+  <view class="winXiaofeijilu">
+    <view class="youhuiquan-title">
+      <view class="youhuiquan-title-item">
+        <view class="{{selectedLeixing == '未使用' ? 'youhuiquan-title-sed' : ''}}"  data-id="未使用" bindtap="selectLeixing">
+          未使用({{youhuiquan1List&&youhuiquan1List.length>0?youhuiquan1List.length:0}})
+        </view>
+      </view>
+      <view class="youhuiquan-title-item" data-id="已使用" bindtap="selectLeixing">
+        <view class="{{selectedLeixing == '已使用' ? 'youhuiquan-title-sed' : ''}}">
+          已使用({{youhuiquan2List&&youhuiquan2List.length>0?youhuiquan2List.length:0}})
+        </view>
+      </view>
+      <view class="youhuiquan-title-item" data-id="已过期" bindtap="selectLeixing">
+        <view class="{{selectedLeixing == '已过期' ? 'youhuiquan-title-sed' : ''}}">
+          已过期({{youhuiquan3List&&youhuiquan3List.length>0?youhuiquan3List.length:0}})
+        </view>
+      </view>
+    </view>
+    <view class="youhuiquan">
+      <scroll-view scroll-y="true" class="youhuiquan-scroll" style="height: 900rpx;">
+        <!--优惠券列表-->
+        <block wx:for="{{youhuiquanList}}" wx:key="id" wx:for-item="youhuiquan">
+          <view class='youhuiquan-item'>
+            <view class="stamp stamp02">
+              <view class="par">
+                <view>
+                  <view class="yuan">¥</view>
+                  <view class="jine">{{youhuiquan.jine}}</view>
+                  <view class="leixing">{{youhuiquan.leixing}} ({{youhuiquan.laiyuan}})</view>
+                </view>
+                <view class="tiaojian">使用条件：消费满¥{{youhuiquan.zuidixiaofei}}可使用</view>
+                <view class="tiaojian">使用时间：{{youhuiquan.kaishishijian}}-{{youhuiquan.jieshushijian}}</view>
+              </view>
+              <view class="copy">有效日期
+                <view class='maxlength'>{{youhuiquan.kaishiriqi}}</view>
+                <view>至</view>
+                <view class='maxlength'>{{youhuiquan.jieshuriqi}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>

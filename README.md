@@ -69,5 +69,17 @@ vs2015
 
 mysql:5.7
 
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/1.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/2.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/3.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/4.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/5.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/6.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/7.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/8.jpg)
+![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/doortip.png)
+
+
 #链接
 网站：https://wechatscan.com
+问题反馈QQ：58520051

@@ -7,7 +7,7 @@
     "page/fuwu/fuwu"
   ],
   "window": {
-    "enablePullDownRefresh": "true"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#454545",

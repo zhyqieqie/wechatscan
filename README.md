@@ -22,7 +22,7 @@ GPRS云打印机（支持易联云）
 
 微信支付
 
-#营销功能
+# 营销功能
 
 优惠券：新用户进店得优惠，早餐券，午餐券，晚餐券，1个月内有效
 
@@ -30,7 +30,7 @@ GPRS云打印机（支持易联云）
 
 充值赠送：冲1000送200
 
-#后台功能
+# 后台功能
 
 添加门店
 
@@ -61,7 +61,7 @@ GPRS云打印机（支持易联云）
 优惠券
 
 
-#技术栈
+# 技术栈
 
 微信开发工具版本：v1.02.1811290
 
@@ -80,6 +80,7 @@ mysql:5.7
 ![Image text](https://github.com/zhyqieqie/wechatscan/blob/master/screemshot/doortip.png)
 
 
-#链接
+# 链接
 网站：https://wechatscan.com
+
 问题反馈QQ：58520051

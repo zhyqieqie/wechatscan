@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：fuwu/index
+    文件功能描述：服务
+    
+----------------------------------------------------------------*/
 // page/shop/index.js
 var imageUtil = require('../../util/autoheight.js')
 var util = require('../../util/util.js')

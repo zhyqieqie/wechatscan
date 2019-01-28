@@ -1,10 +1,10 @@
-/**
- * 微信小程序JavaScriptSDK
- * 
- * @version 1.0
- * @date 2017-01-10
- * @author jaysonzhou@tencent.com
- */
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：diancan/index
+    文件功能描述：位置
+    
+----------------------------------------------------------------*/
 
 var ERROR_CONF = {
     KEY_ERR: 311,

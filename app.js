@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：app
+    文件功能描述：全局js
+    
+----------------------------------------------------------------*/
 //import allmenu from 'page/resources/json/menus.js'
 var qcloud = require('./util/vendor/qcloud-weapp-client-sdk/index');
 var util = require('./util/util.js')

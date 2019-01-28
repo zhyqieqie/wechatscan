@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：verdor
+    文件功能描述：util.js
+    
+----------------------------------------------------------------*/
 var app = getApp();
 var qcloud = require('./vendor/qcloud-weapp-client-sdk/index');
 var config = require('../config');

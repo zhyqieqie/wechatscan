@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：my/index
+    文件功能描述：我的
+        
+----------------------------------------------------------------*/
 var util = require('../../util/util.js')
 var qcloud = require('../../util/vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');

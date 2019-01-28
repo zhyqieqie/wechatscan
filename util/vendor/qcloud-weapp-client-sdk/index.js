@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：diancan/index
+    文件功能描述：lib/index.js
+    
+----------------------------------------------------------------*/
 var constants = require('./lib/constants');
 var login = require('./lib/login');
 var Session = require('./lib/session');

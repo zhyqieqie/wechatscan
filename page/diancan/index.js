@@ -1,4 +1,10 @@
-
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：diancan/index
+    文件功能描述：点餐首页
+    
+----------------------------------------------------------------*/
 /*import allmenu from '../../page/resources/json/menus.js'*/
 var util = require('../../util/util.js')
 var app = getApp()

@@ -1,3 +1,10 @@
+/*----------------------------------------------------------------
+    Copyright (C) 2019 筱程 wechatscan.com 
+  
+    文件名：thisorder/index
+    文件功能描述：点餐
+    
+----------------------------------------------------------------*/
 var util = require('../../util/util.js')
 var app = getApp()
 var qcloud = require('../../util/vendor/qcloud-weapp-client-sdk/index');
